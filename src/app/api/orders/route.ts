@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextResponse, after } from "next/server";
 import { z } from "zod";
 import { FieldValue } from "firebase-admin/firestore";
 import { getAdminFirestore } from "@/lib/firebaseAdmin";
@@ -46,9 +46,11 @@ export async function POST(request: Request) {
       createdAt: FieldValue.serverTimestamp(),
     });
 
-    sendOrderConfirmationEmail(data).catch((error) => {
-      console.error("Failed to send order confirmation email", error);
-    });
+    after(() =>
+      sendOrderConfirmationEmail(data).catch((error) => {
+        console.error("Failed to send order confirmation email", error);
+      })
+    );
 
     return NextResponse.json({ ok: true, orderId: ref.id }, { status: 201 });
   } catch (error) {
