@@ -10,10 +10,6 @@ export default function PrivacyPage() {
     <div className="mx-auto max-w-3xl px-5 py-20">
       <Reveal>
         <h1 className="font-display text-4xl font-bold text-ink">Privacy Policy</h1>
-        <p className="mt-4 rounded-lg bg-amber/10 p-4 text-sm text-amber-dark">
-          Placeholder draft — replace with CampusBite&apos;s finalized privacy policy before
-          launch.
-        </p>
         <div className="mt-8 space-y-6 text-sm leading-relaxed text-charcoal/80">
           <section>
             <h2 className="font-display text-lg font-semibold text-ink">
