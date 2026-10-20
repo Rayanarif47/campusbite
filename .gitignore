@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# raw source photos (already copied into public/images)
+/images
+
 # debug
 npm-debug.log*
 yarn-debug.log*
