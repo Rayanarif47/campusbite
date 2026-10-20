@@ -20,7 +20,7 @@ export default function TermsPage() {
               A single meal costs PKR 1,000 with no subscription required. The Weekly Fuel plan
               (PKR 5,700) includes six lunches across one six-day service week. The Monthly Fuel
               plan (PKR 21,600) includes 24 lunches across four six-day service weeks. Meal
-              selections are subject to availability and must be confirmed through WhatsApp.
+              selections are subject to availability and the ordering deadline.
             </p>
           </section>
           <section>

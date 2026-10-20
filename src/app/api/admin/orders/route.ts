@@ -16,6 +16,7 @@ export async function GET(request: Request) {
       id: doc.id,
       name: data.name,
       phone: data.phone,
+      email: data.email,
       plan: data.plan,
       meals: data.meals,
       note: data.note,

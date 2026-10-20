@@ -154,7 +154,7 @@ export const plans: Plan[] = [
     features: [
       "One meal of your choice, subject to availability",
       "No recurring commitment",
-      "Order and collection details confirmed on WhatsApp",
+      "Order confirmed instantly online",
     ],
     cta: "Order a Single Meal",
     highlight: false,
@@ -208,8 +208,8 @@ export const howItWorks = [
   },
   {
     number: "03",
-    title: "Confirm your order on WhatsApp",
-    description: "Send your meal selections, preferred plan and contact details through WhatsApp.",
+    title: "Place your order",
+    description: "Submit your meal selections, plan and details online — your order is confirmed instantly.",
   },
   {
     number: "04",
@@ -265,7 +265,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Can I choose which meals I receive?",
     answer:
-      "Customers can select from the available menu, subject to stock and the ordering deadline. Meal selections must be confirmed through WhatsApp.",
+      "Customers can select from the available menu, subject to stock and the ordering deadline.",
   },
   {
     question: "Are the meals high in protein?",
@@ -275,7 +275,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "How do I place an order?",
     answer:
-      "Contact CampusBite through WhatsApp, share your preferred plan and meal selections, and follow the confirmation and payment instructions provided by our team.",
+      "Choose your meals and plan on our website and submit the order form. Your order is confirmed instantly, and a confirmation is emailed to you.",
   },
   {
     question: "How do I collect my food?",

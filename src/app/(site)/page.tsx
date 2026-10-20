@@ -255,7 +255,7 @@ export default function Home() {
               href="/order"
               className="inline-block rounded-full bg-amber px-8 py-3.5 text-sm font-semibold text-ink shadow-md transition-all hover:-translate-y-0.5 hover:bg-amber-dark"
             >
-              Order on WhatsApp
+              Order Now
             </Link>
           </Reveal>
         </div>

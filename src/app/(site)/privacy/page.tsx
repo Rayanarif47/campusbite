@@ -20,17 +20,17 @@ export default function PrivacyPage() {
               Information We Collect
             </h2>
             <p className="mt-2">
-              When you place an order through our website, we collect your name, WhatsApp number,
-              selected plan, meal selections and any note you provide, so we can confirm and
-              fulfil your order.
+              When you place an order through our website, we collect your name, email address,
+              WhatsApp number, selected plan, meal selections and any note you provide, so we can
+              confirm and fulfil your order.
             </p>
           </section>
           <section>
             <h2 className="font-display text-lg font-semibold text-ink">How We Use It</h2>
             <p className="mt-2">
-              Order details are used only to confirm, prepare and collect-coordinate your
-              CampusBite order on WhatsApp, and are not sold or shared with third parties for
-              marketing purposes.
+              Order details are used only to confirm, prepare and coordinate collection of your
+              CampusBite order, and are not sold or shared with third parties for marketing
+              purposes.
             </p>
           </section>
           <section>

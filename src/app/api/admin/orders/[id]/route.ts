@@ -4,7 +4,7 @@ import { getAdminFirestore } from "@/lib/firebaseAdmin";
 import { requireAdmin } from "@/lib/requireAdmin";
 
 const statusSchema = z.object({
-  status: z.enum(["pending", "confirmed", "collected", "cancelled"]),
+  status: z.enum(["confirmed", "delivered", "cancelled"]),
 });
 
 export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {

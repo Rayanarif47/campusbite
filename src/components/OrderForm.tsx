@@ -1,9 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { baseCombos, signatureMenu, plans } from "@/data/menu";
-import { buildWhatsAppLink } from "@/lib/whatsapp";
 
 const ALL_MEALS = [...baseCombos, ...signatureMenu].map((m) => ({ id: m.id, name: m.name }));
 
@@ -16,6 +15,7 @@ export default function OrderForm() {
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
   const [plan, setPlan] = useState(
     presetPlan && plans.some((p) => p.id === presetPlan) ? presetPlan : "single"
   );
@@ -26,8 +26,6 @@ export default function OrderForm() {
   const [website, setWebsite] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
-
-  const selectedPlan = useMemo(() => plans.find((p) => p.id === plan), [plan]);
 
   function toggleMeal(id: string) {
     setSelectedMeals((current) =>
@@ -55,6 +53,7 @@ export default function OrderForm() {
         body: JSON.stringify({
           name,
           phone,
+          email,
           plan,
           meals: mealNames,
           note,
@@ -67,17 +66,6 @@ export default function OrderForm() {
         throw new Error(data?.error ?? "Could not submit order.");
       }
 
-      const message = [
-        `Hi CampusBite! I'd like to place an order.`,
-        `Name: ${name}`,
-        `Plan: ${selectedPlan?.name ?? plan}`,
-        `Meals: ${mealNames.join(", ")}`,
-        note ? `Note: ${note}` : null,
-      ]
-        .filter(Boolean)
-        .join("\n");
-
-      window.open(buildWhatsAppLink(message), "_blank", "noopener,noreferrer");
       setStatus("success");
     } catch (error) {
       setStatus("error");
@@ -88,10 +76,10 @@ export default function OrderForm() {
   if (status === "success") {
     return (
       <div className="rounded-2xl border border-cobalt/10 bg-white p-8 text-center">
-        <h2 className="font-display text-2xl font-bold text-ink">Order received!</h2>
+        <h2 className="font-display text-2xl font-bold text-ink">Order confirmed!</h2>
         <p className="mt-3 text-sm text-charcoal/70">
-          We&apos;ve saved your order and opened WhatsApp with your details pre-filled. Send the
-          message to confirm your order with our team.
+          We&apos;ve sent a confirmation to your email. We&apos;ll be in touch with your
+          collection details.
         </p>
       </div>
     );
@@ -192,6 +180,20 @@ export default function OrderForm() {
               placeholder="03xx xxxxxxx"
             />
           </div>
+          <div>
+            <label htmlFor="email" className="text-sm font-medium text-charcoal/80">
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="mt-1.5 w-full rounded-lg border border-cobalt/20 px-3.5 py-2.5 text-sm outline-none focus:border-cobalt"
+              placeholder="you@example.com"
+            />
+          </div>
         </div>
         <div className="mt-4">
           <label htmlFor="note" className="text-sm font-medium text-charcoal/80">
@@ -216,7 +218,7 @@ export default function OrderForm() {
         disabled={status === "submitting"}
         className="w-full rounded-full bg-amber px-6 py-3.5 text-sm font-semibold text-ink shadow-md transition-all hover:-translate-y-0.5 hover:bg-amber-dark disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {status === "submitting" ? "Submitting..." : "Confirm order on WhatsApp"}
+        {status === "submitting" ? "Submitting..." : "Place order"}
       </button>
     </form>
   );

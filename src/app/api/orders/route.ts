@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { FieldValue } from "firebase-admin/firestore";
 import { getAdminFirestore } from "@/lib/firebaseAdmin";
+import { sendOrderConfirmationEmail } from "@/lib/email";
 
 const orderSchema = z.object({
   name: z.string().trim().min(2).max(100),
@@ -9,6 +10,7 @@ const orderSchema = z.object({
     .string()
     .trim()
     .regex(/^[0-9+\s-]{7,20}$/, "Enter a valid phone number"),
+  email: z.string().trim().email().max(200),
   plan: z.enum(["single", "weekly", "monthly"]),
   meals: z.array(z.string().trim().min(1)).min(1).max(10),
   note: z.string().trim().max(500).optional().default(""),
@@ -40,9 +42,14 @@ export async function POST(request: Request) {
     const db = getAdminFirestore();
     const ref = await db.collection("orders").add({
       ...data,
-      status: "pending",
+      status: "confirmed",
       createdAt: FieldValue.serverTimestamp(),
     });
+
+    sendOrderConfirmationEmail(data).catch((error) => {
+      console.error("Failed to send order confirmation email", error);
+    });
+
     return NextResponse.json({ ok: true, orderId: ref.id }, { status: 201 });
   } catch (error) {
     console.error("Failed to save order", error);

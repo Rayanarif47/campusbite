@@ -5,7 +5,7 @@ import OrderForm from "@/components/OrderForm";
 
 export const metadata: Metadata = {
   title: "Order — CampusBite",
-  description: "Choose your meals, pick your plan and confirm your CampusBite order on WhatsApp.",
+  description: "Choose your meals, pick your plan and place your CampusBite order online.",
 };
 
 export default function OrderPage() {
@@ -21,8 +21,8 @@ export default function OrderPage() {
               Choose your meals. Pick your plan. Fuel your day.
             </h1>
             <p className="mt-4 text-base text-white/80">
-              Submit your order and we&apos;ll open WhatsApp so you can confirm it directly with
-              our team.
+              Submit your order and it&apos;s confirmed instantly — we&apos;ll follow up with
+              collection details.
             </p>
           </Reveal>
         </div>
