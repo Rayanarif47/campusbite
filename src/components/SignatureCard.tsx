@@ -3,9 +3,9 @@ import Link from "next/link";
 import type { SignatureMeal } from "@/data/menu";
 
 const TAG_STYLES: Record<SignatureMeal["tag"], string> = {
-  "DESI FAVOURITE": "bg-amber/15 text-amber-dark",
-  CONTINENTAL: "bg-cobalt/10 text-cobalt",
-  "CONTINENTAL FUSION": "bg-ink/10 text-ink",
+  "DESI FAVOURITE": "bg-white text-amber-dark",
+  CONTINENTAL: "bg-white text-cobalt",
+  "CONTINENTAL FUSION": "bg-white text-ink",
 };
 
 export default function SignatureCard({ meal }: { meal: SignatureMeal }) {
@@ -23,7 +23,7 @@ export default function SignatureCard({ meal }: { meal: SignatureMeal }) {
           className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <span
-          className={`absolute left-3 top-3 rounded-full px-3 py-1 text-xs font-semibold backdrop-blur ${TAG_STYLES[meal.tag]}`}
+          className={`absolute left-3 top-3 rounded-full px-3 py-1 text-xs font-semibold shadow-sm ${TAG_STYLES[meal.tag]}`}
         >
           {meal.tag}
         </span>
