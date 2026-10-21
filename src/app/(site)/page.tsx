@@ -33,7 +33,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.3}>
               <p className="mt-6 font-display text-2xl font-bold text-amber">
-                Starting at PKR 1,000 per meal.
+                Starting at PKR 500 per meal.
               </p>
             </Reveal>
             <Reveal delay={0.4}>

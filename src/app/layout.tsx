@@ -16,7 +16,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "CampusBite — Good Food. Better Days.",
   description:
-    "Protein-focused, balanced lunches for busy university days at SZABIST Islamabad. Starting at PKR 1,000 per meal.",
+    "Protein-focused, balanced lunches for busy university days at SZABIST Islamabad. Starting at PKR 500 per meal.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
